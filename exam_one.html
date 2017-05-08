@@ -4,47 +4,8 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+		<script src="js/exam_one.js" type="text/javascript" charset="utf-8"></script>
 		<title></title>
-		<script>
-			$(document).ready(function() {
-				//<tr/>居中
-				$("#tab tr").attr("align", "center");
-				//				增加
-				$("#but").click(function() {
-
-					$("#tab").append("<tr><td>" + $(".A").val() + "</td><td>" + $(".B").val() + "</td><td>" + $(".C").val() + "</td><td class='D'><button class='del' >删除</button></td><td class='D'><button id='bji' >编辑</button></td><td class='D'><button id='save' >确定</button></td></tr>")
-					//					删除
-					//					$(".del").click(function() {
-					//					$(this).parent().parent().remove();
-					//				})
-					//					保存
-					$("table tr:odd").css("background-color","#D5D5D5");
-
-				})
-				//					删除
-				$("body").on("click", ".del", function() {
-					$(this).parent().parent().remove();
-				})
-				$("body").on("click", "#save", function() {
-						var tr = $(this).parent().parent();
-						$("input[type='text']", tr).each(function(i, el) {
-							el = $(el);
-							el.parent().text(el.val());
-							el.remove();
-						});
-					});
-					//					编辑
-					$("body").on("click", "#bji", function() {
-						var tr = $(this).parent().parent();
-						$("td:not('.D')", tr).each(function(i, el) {
-							el = $(el);
-							var html = "<input value='" + el.text() + "' type='text'>";
-							el.html(html);
-						});
-
-					});
-			})
-		</script>
 	</head>
 
 	<body>
@@ -52,11 +13,10 @@
 		<table id="tab" border="1" width="60%" align="center" style="margin-top:20px">
 			<tr>
 				<td width="20%">Name</td>
-				<td>Roll No</td>
-				<td>Percentage</td>
-				<td>操作</td>
-				<td>操作</td>
-				<td>操作</td>
+				<td width="30%">Roll No</td>
+				<td width="30%">Percentage</td>
+				<td width="10%">操作</td>
+				<td width="10%">操作</td>
 			</tr>
 		</table>
 		<div style="border:2px; 
@@ -67,7 +27,7 @@
 			<input type="text" class="B" />
 			<input type="text" class="C" />
 			<input type="button" id="but" value="增加" />
-		</div>
+			</div>
 	</body>
 
 </html>

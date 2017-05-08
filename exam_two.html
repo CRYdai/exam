@@ -7,76 +7,22 @@
 		<link rel="stylesheet" />
 		<link rel="stylesheet" href="css/index.css" />
 		<script src="js/jquery-3.2.1.min.js"></script>
-		<script type="text/javascript">
-//			$(document).ready(function() {
-//				$("#button").click(function() {
-					$.ajax({
-						type: "POST",
-						url: "user.php",
-						dataType: "'String'",
-						data: $('#formID').serialize(), // 要提交的表单 
-						success: function(data) {
-							//data=eval('('+data+')'); 
-							if(data.s == 1) {
-								alert('请求成功');
-							} else {
-								alert('请求失败');
-							}
-						}
-					})
-//				})
-//			})
-			$(document).ready(function() {
-				$("#button").click(function() {
-					if($("#email").val() == "") {
-						//$("#confirmMsg").html("<font color='red'>邮箱地址不能为空！</font>"); 
-						alert("邮箱不能为空!")
-						$("#email").focus();
-						return false;
-					}
-					if(!$("#email").val().match(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/)) {
-						alert("邮箱格式不正确");
-						//$("#confirmMsg").html("<font color='red'>邮箱格式不正确！请重新输入！</font>"); 
-						$("#email").focus();
-						return false;
-					}
-					return true;
-				})
-			})
-			$(document).ready(function() {
-				$("#button").click(function() {
-					if($("#input_munber").val() == "") {
-						alert("手机号码不能为空！");
-						//$("#moileMsg").html("<font color='red'>手机号码不能为空！</font>"); 
-						$("#input_munber").focus();
-						return false;
-					}
-
-					if(!$("#input_munber").val().match(/1[3|5|7|8|]\d{9}/)) {
-						alert("手机号码格式不正确！");
-						//$("#moileMsg").html("<font color='red'>手机号码格式不正确！请重新输入！</font>"); 
-						$("#input_munber").focus();
-						return false;
-					}
-					return true;
-				})
-			})
-		</script>
+		<script src="js/exam_two.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 
 	<body>
 		<div id="form">
-			<form id="formID">
-				姓名：<input id="input" type="text" value="输入姓名" name="姓名" /></br>
+			<form id="formID" method="post">
+				姓名：<input id="input" type="text" placeholder="请输入你的姓名" name="姓名" /></br>
 				性别：
 				<select id="input_sex">
 					<option value="man">男</option>
 					<option value="woman">女</option>
 				</select>
 				</br>
-				邮箱<input id="email" type="text" value="输入邮箱" class="txtbackcolor" /><span id="confirmMsg"></span><br /> 手机号码：
-				<input id="input_munber" type="text" value="输入手机号码" name="手机号码" /></br>
-				<input id="button" type="submit" value="提交" name="" />
+				邮箱：<input id="email" type="text" placeholder="请输入你的邮箱" class="txtbackcolor" /><span id="confirmMsg"></span><br /> 
+				手机号码：<input id="input_munber" type="text" placeholder="请输入你的手机号码" name="手机号码" /></br>
+				<input id="button" type="button" value="提交" name="" />
 			</form>
 		</div>
 	</body>
